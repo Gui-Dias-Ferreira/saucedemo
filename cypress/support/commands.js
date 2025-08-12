@@ -22,14 +22,17 @@ Cypress.Commands.add('adicionarProdutoCarrinho', (productTestId) => {
     cy.get('.shopping_cart_badge').should('contain', '1');
     cy.get(".shopping_cart_badge").click();
     cy.get('[data-test="title"]').should("contain.text", "Your Cart");
-    cy.get('[data-test="checkout"]').click();
-    cy.get('[data-test="firstName"]').type("Jhon");
-    cy.get('[data-test="lastName"]').type("Dias");
-    cy.get('[data-test="postalCode"]').type("12345");
-    cy.get('[data-test="continue"]').click();   
-    cy.get('[data-test="title"]').should("contain.text", "Checkout: Overview");
-    cy.get('[data-test="finish"]').click();
+
+    // Todo código comentado, pois estou reaproveitando o comando customizado 'adicionarProdutoCarrinho'. Dessa a adição de produtos ao carrinho ficou mais simples e reutilizável.
+    // cy.get('[data-test="checkout"]').click();
+    // cy.get('[data-test="firstName"]').type("Jhon");
+    // cy.get('[data-test="lastName"]').type("Dias");
+    // cy.get('[data-test="postalCode"]').type("12345");
+    // cy.get('[data-test="continue"]').click();   
+    // cy.get('[data-test="title"]').should("contain.text", "Checkout: Overview");
+    // cy.get('[data-test="finish"]').click();
 });
+
 
 // Cypress.Commands.add('login', () => {
 //   const username = users.usuario_valido.nome
