@@ -5,7 +5,7 @@
   "main": "cypress.config.js",
   "scripts": {
     "cy:open": "cypress open",
-    "test": "cypress run"
+    "cy:run": "cypress run"
   },
   "author": "",
   "license": "ISC",
