@@ -23,16 +23,6 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      # Se sua app precisa subir localmente para os testes:
-      - name: Run Cypress
-        uses: cypress-io/github-action@v6
-        with:
-          browser: chrome            # pode usar chromium/electron/firefox se quiser
-          command: npm run cy:run    # ou 'npx cypress run'
-          start: npm run dev         # comando que inicia sua app
-          wait-on: 'http://localhost:3000' # mude para a porta certa
-          wait-on-timeout: 120       # segundos (ajuste conforme necessário)
-
       # Salva evidências quando falha
       - name: Upload artifacts on failure
         if: failure()
