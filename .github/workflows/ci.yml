@@ -1,0 +1,45 @@
+name: Cypress CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      # Se sua app precisa subir localmente para os testes:
+      - name: Run Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome            # pode usar chromium/electron/firefox se quiser
+          command: npm run cy:run    # ou 'npx cypress run'
+          start: npm run dev         # comando que inicia sua app
+          wait-on: 'http://localhost:3000' # mude para a porta certa
+          wait-on-timeout: 120       # segundos (ajuste conforme necessário)
+
+      # Salva evidências quando falha
+      - name: Upload artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
+          if-no-files-found: ignore
