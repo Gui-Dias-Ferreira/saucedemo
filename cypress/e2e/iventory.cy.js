@@ -10,7 +10,7 @@ describe("Testes na página de inventario", () => {
   it("Remover 1 produto do carrinho", () => {
     cy.removeProdutoCarrinho("add-to-cart-sauce-labs-backpack");
   });
-  it.only('Deve usar todos os filtros de produtos', () => {
+  it("Deve usar todos os filtros de produtos", () => {
     cy.filtrarProdutos();
   });
 });
