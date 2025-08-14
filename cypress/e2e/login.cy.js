@@ -1,12 +1,11 @@
 import { usuario_error } from "../fixtures/usuarios.json";
 
 describe("Testes de Login", () => {
-  
   // Deixando esse código comentado, pois não é necessário para o teste atual. O intuito aqui é validar o login. Logout está sendo um plus somente para os testes de Login, por isso não criei uma spec só para realizar esse teste.
   // beforeEach(() => {
   //   cy.login();
   // });
-  
+
   it("Realizar login com sucesso", () => {
     cy.login();
     cy.url().should("contain", "/inventory.html");
@@ -23,5 +22,13 @@ describe("Testes de Login", () => {
     cy.logout();
     cy.url().should("contain", "/");
     cy.get(".app_logo").should("not.exist");
+  });
+  it("Não deve realizar login com campos vazios", () => {
+    cy.loginCamposVazio();
+  });
+
+  // Criar cenários preenchendo apenas o campo de usuário, sem preencher o campo de senha.
+  it.only("Não deve realizar login sem preencher o campo senha", () => {
+    cy.loginCampoSenhaVazio();
   });
 });

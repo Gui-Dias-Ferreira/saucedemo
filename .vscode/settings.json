@@ -1,0 +1,13 @@
+{
+  // Desativa as sugestões automáticas
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  // Impede sugestões em linha
+  "editor.inlineSuggest.enabled": false,
+  // Remove IntelliSense do Cypress se não quiser TypeScript defs
+  "typescript.suggest.enabled": false,
+  "javascript.suggest.enabled": false
+}
