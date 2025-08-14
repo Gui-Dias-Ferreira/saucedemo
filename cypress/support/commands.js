@@ -55,3 +55,15 @@ Cypress.Commands.add('removeProdutoCarrinho', (productTestId) => {
     cy.url().should("contain", "/inventory.html");
 });
 
+Cypress.Commands.add('filtrarProdutos', () => {
+    const opcoes = [
+      { value: "az", description: "Ordem alfabética A-Z" },
+      { value: "za", description: "Ordem alfabética Z-A" },
+      { value: "lohi", description: "Preço baixo para alto" },
+      { value: "hilo", description: "Preço alto para baixo" },
+    ];
+    opcoes.forEach((itens) => {
+      cy.get('[data-test="product-sort-container"]').select(itens.value);
+      cy.get('[data-test="product-sort-container"]').should("have.value", itens.value);
+    });
+})

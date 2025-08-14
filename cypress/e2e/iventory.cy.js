@@ -10,8 +10,7 @@ describe("Testes na página de inventario", () => {
   it("Remover 1 produto do carrinho", () => {
     cy.removeProdutoCarrinho("add-to-cart-sauce-labs-backpack");
   });
-  it("Filtrar produtos por ordem alfabética", () => {
-    cy.get('[data-test="product-sort-container"]').select("za");
-    cy.get('[data-test="product-sort-container"]').should("have.value", "za");
+  it.only('Deve usar todos os filtros de produtos', () => {
+    cy.filtrarProdutos();
   });
 });
