@@ -13,7 +13,8 @@ Comandos personalizados no Cypress são extensões do framework que permitem def
 ## **Funcionalidades**
 
 ```markdown
-- [x] Login com usuário válido
-- [x] Testes de login inválido
-- [] Testes de compras (em progresso)
+- Login com usuário válido ✅
+- Testes de login inválido ✅
+- Testes de compras ✅
+- Filtrar produtos ✅
 
