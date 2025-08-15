@@ -8,7 +8,8 @@ Comandos personalizados no Cypress são extensões do framework que permitem def
 
 ## ⚙️ Tecnologias Utilizadas
 - Javascript
-- Cypress 
+- Cypress
+- GitHub Action
 
 ## **Funcionalidades**
 
