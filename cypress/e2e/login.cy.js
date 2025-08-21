@@ -27,7 +27,6 @@ describe("Testes de Login", () => {
     cy.loginCamposVazio();
   });
 
-  // Criar cenários preenchendo apenas o campo de usuário, sem preencher o campo de senha.
   it("Não deve realizar login sem preencher o campo senha", () => {
     cy.loginCampoSenhaVazio();
   });
